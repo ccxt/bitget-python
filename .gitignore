@@ -174,3 +174,4 @@ cython_debug/
 
 build/ccxt
 /meta.json
+/build/package-lock.json
