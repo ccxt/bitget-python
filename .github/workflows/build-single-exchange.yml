@@ -46,7 +46,7 @@ jobs:
             
       - name: Build
         env:
-          PYPI_API_SECRET: ${{ secrets.PYPI_API_SECRET }}
+          PYPI_API_SECRET_SP: ${{ secrets.PYPI_API_SECRET_SP }}
         run: |
           cd build
           npm run pypi-publish
@@ -57,4 +57,4 @@ jobs:
           python -m twine upload dist/*
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_SECRET }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_SECRET_SP }}

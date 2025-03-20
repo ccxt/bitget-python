@@ -91,9 +91,9 @@ class pypi {
 }
 
 // check if environment variabele exist
-const pypiApiSecret = process.env.PYPI_API_SECRET;
+const pypiApiSecret = process.env.PYPI_API_SECRET_SP;
 if (!pypiApiSecret) {
-    console.error('Please set environment variable PYPI_API_SECRET');
+    console.error('Please set environment variable PYPI_API_SECRET_SP');
     process.exit(1);
 }
 new pypi(exchangeArgv, pypiApiSecret);
