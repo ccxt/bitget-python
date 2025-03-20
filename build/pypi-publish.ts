@@ -78,7 +78,8 @@ class pypi {
         const versions = res.toString().trim();
         const matches = versions.match(/\((\S+)\)/);
         // @ts-ignore
-        const newVersion = semver.inc(matches[1], 'patch');
+        const currentVersion = matches[1] || '0.0.1'; // if new package and not found
+        const newVersion = semver.inc(currentVersion, 'patch');
         return newVersion;
     }
 
