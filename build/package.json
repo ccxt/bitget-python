@@ -6,13 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsx build.ts",
-    "pypi-publish": "tsx pypi-publish.ts"
+    "pypi-packager": "tsx pypi-packager.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7",
+    "fs": "*",
+    "path": "*",
     "semver": "^7.7.1"
   },
   "devDependencies": {

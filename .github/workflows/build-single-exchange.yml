@@ -20,8 +20,9 @@ jobs:
       - name: Install dependencies
         run: |
           cd build
+          npm install
           npm install typescript
-          npm install tsx
+
       - name: Build
         run: |
           cd build
@@ -29,7 +30,7 @@ jobs:
           REPO_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2 | cut -d'-' -f1)
           npm run build -- $REPO_NAME
 
-      - name: Commit and push changes
+      - name: Commit and push back changes
         run: |
           chmod +x .github/scripts/pushback.sh
           .github/scripts/pushback.sh
@@ -44,14 +45,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install build twine
             
-      - name: Build
+      - name: PyPi packager
         env:
           PYPI_API_SECRET_SP: ${{ secrets.PYPI_API_SECRET_SP }}
         run: |
           cd build
-          npm run pypi-publish
+          npm run pypi-packager
 
-      - name: Upload to PyPI
+      - name: PyPi upload
         run: |
           cd ./temp_pypi
           python -m twine upload dist/*
